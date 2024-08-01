@@ -1,4 +1,4 @@
-# Shoelace: Localize
+# Pure UI: Localize
 
 This zero-dependency micro library does not aim to replicate a full-blown localization tool. For that, you should use something like [i18next](https://www.i18next.com/). What this library _does_ do is provide a lightweight, [Reactive Controller](https://lit.dev/docs/composition/controllers/) for sharing and applying translations across one or more custom elements in a component library.
 
@@ -9,7 +9,7 @@ Reactive Controllers are supported by Lit 2 out of the box, but they're designed
 Here's an example of how this library can be used to create a localized custom element with Lit.
 
 ```ts
-import { LocalizeController, registerTranslation } from '@shoelace-style/localize';
+import { LocalizeController, registerTranslation } from 'pure-localize';
 
 // Note: translations can also be lazy loaded (see "Registering Translations" below)
 import en from '../translations/en';
@@ -89,7 +89,7 @@ Fortunately, the majority of use cases appear to favor a single language per pag
 First, install the library.
 
 ```bash
-npm install @shoelace-style/localize
+npm install pure-localize
 ```
 
 Next, follow these steps to localize your components.
@@ -104,7 +104,7 @@ All translations must extend the `Translation` type and implement the required m
 
 ```ts
 // en.ts
-import type { Translation } from '@shoelace-style/localize';
+import type { Translation } from 'pure-localize';
 
 const translation: Translation = {
   $code: 'en',
@@ -133,7 +133,7 @@ export default translation;
 Once you've created a translation, you need to register it before use. To register a translation, call the `registerTranslation()` method. This example imports and register two translations up front.
 
 ```ts
-import { registerTranslation } from '@shoelace-style/localize';
+import { registerTranslation } from 'pure-localize';
 import en from './en';
 import es from './es';
 
@@ -151,7 +151,7 @@ It's important to note that translations _do not_ have to be registered up front
 Here's a sample function that dynamically loads a translation.
 
 ```ts
-import { registerTranslation } from '@shoelace-style/localize';
+import { registerTranslation } from 'pure-localize';
 
 async function changeLanguage(lang) {
   const availableTranslations = ['en', 'es', 'fr', 'de'];
@@ -170,7 +170,7 @@ You can use the `LocalizeController` with any library that supports [Lit's React
 ```ts
 import { LitElement } from 'lit';
 import { customElement } from 'lit/decorators.js';
-import { LocalizeController } from '@shoelace-style/localize/dist/lit.js';
+import { LocalizeController } from 'pure-localize/dist/lit.js';
 
 @customElement('my-element')
 export class MyElement extends LitElement {
@@ -208,13 +208,13 @@ Because translations are defined by the user, there's no way for TypeScript to a
 In a separate file, e.g. `my-localize.ts`, add the following code.
 
 ```ts
-import { LocalizeController as DefaultLocalizeController } from '@shoelace-style/localize';
+import { LocalizeController as DefaultLocalizeController } from 'pure-localize';
 
 // Extend the default controller with your custom translation
 export class LocalizeController extends DefaultLocalizeController<MyTranslation> {}
 
 // Export `registerTranslation` so you can import everything from this file
-export { registerTranslation } from '@shoelace-style/localize';
+export { registerTranslation } from 'pure-localize';
 
 // Define your translation terms here
 export interface MyTranslation extends Translation {
