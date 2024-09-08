@@ -231,7 +231,7 @@ Now you can import `MyLocalizeController` and get strongly typed translations wh
 - Zero dependencies
 - Extremely lightweight
 - Supports simple terms, plurals, and complex translations
-	- Fun fact: some languages have [six plural forms](https://lingohub.com/blog/2019/02/pluralization) and this utility supports that
+  - Fun fact: some languages have [six plural forms](https://lingohub.com/blog/2019/02/pluralization) and this utility supports that
 - Supports dates, numbers, and currencies using built-in [`Intl` APIs](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl)
 - Good DX for custom element authors and consumers
   - Intuitive API for custom element authors
@@ -241,4 +241,4 @@ Now you can import `MyLocalizeController` and get strongly typed translations wh
 ## Disadvantages
 
 - Complex translations require some code, such as conditionals
-	- This is arguably no more difficult than, for example, adding them to a [YAML](https://edgeguides.rubyonrails.org/i18n.html#pluralization) or [XLIFF](https://en.wikipedia.org/wiki/XLIFF) file
+  - This is arguably no more difficult than, for example, adding them to a [YAML](https://edgeguides.rubyonrails.org/i18n.html#pluralization) or [XLIFF](https://en.wikipedia.org/wiki/XLIFF) file
